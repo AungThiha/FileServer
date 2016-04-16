@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+</head>
+<body>
+<h1><%= title %></h1>
+<ul>
+    <% for(var i = 0; i < files.length; i++) { %>
+        <li><a href="/downloads/<%= files[i] %>" target="_blank"><%= files[i] %></a></li>
+    <% } %>
+</ul>
+</body>
 </html>
