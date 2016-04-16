@@ -6,15 +6,15 @@ var router = express.Router();
 var path = require('path');
 
 /* GET home page. */
-router.get('/:file_name', function(req, res, next) {
-  var file = path.resolve(__dirname, '../', req.params.file_name);
-  res.send(file);
-  //path.exists(file, function(exists) {
-  //
-  //  if (exists) {
-  //    // do something
-  //  }
-  //});
+router.get('/:file_name', function (req, res, next) {
+  var file = path.resolve('/home/ubuntu/movies/terminatorTvSeries/', req.params.file_name);
+  path.exists(file, function (exists) {
+    if (exists) {
+      res.sendFile(file);
+    }else{
+      res.send("File not exist");
+    }
+  });
 });
 
 module.exports = router;
