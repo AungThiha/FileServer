@@ -1,14 +1,15 @@
 var express = require('express');
 var fs = require('fs');
 var router = express.Router();
+var config = require('../config/downloads');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  fs.readdir('/home/ubuntu/movies/terminatorTvSeries', function(err, files){
+  fs.readdir(config.download_dir, function(err, files){
     if(err){
       return res.send("Error ls");
     }
-    res.render('index', { title: 'Terminator TV series', files: files });
+    res.render('index', { title: 'Torrent Leeched', files: files });
   });
 
 });
